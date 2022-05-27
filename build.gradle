@@ -1,0 +1,27 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group = 'me.johnnydevo'
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'fr.inria.gforge.spoon', name: 'spoon-core', version: '8.1.0-beta-2'
+    implementation group: 'fr.inria.gforge.spoon', name: 'spoon-decompiler', version: '0.1.0'
+    implementation group: 'org.bitbucket.mstrobel', name: 'procyon-compilertools', version: '0.6.0'
+}
+
+gradlePlugin {
+    plugins {
+        spireForgerPlugin {
+            id = 'me.johnnydevo.spire-forger-plugin'
+            implementationClass = 'me.johnnydevo.plugins.spireforgerplugin.SpireForgerPlugin'
+        }
+    }
+}
